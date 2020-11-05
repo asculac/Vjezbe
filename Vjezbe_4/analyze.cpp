@@ -8,8 +8,8 @@ int main()
 
   analyzer = new Analyzer();
 
-  analyzer->ReadTxtFile("../Vjezbe_3/Analysis.txt");
-  analyzer->ConvertTxtToRootFile("../Vjezbe_3/Analysis.txt","Analysis.root");
+  analyzer->ReadTxtFile("Analysis.txt");
+  analyzer->ConvertTxtToRootFile("Analysis.txt","Analysis.root");
 
   delete analyzer;
 
