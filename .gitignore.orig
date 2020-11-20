@@ -1,0 +1,19 @@
+<<<<<<< HEAD
+*/*.exe
+*/*.o
+*/analyzer
+*/analyze
+*/*.txt
+*/*.png
+*/*.root
+Vjezbe_8/Leptons_*.pdf
+=======
+*/*.exe
+*/*.o
+*/analyzer
+*/analyze
+*/*.txt
+*/*.png
+*/*.root
+Vjezbe_8/Leptons_*.pdf
+>>>>>>> fc705bfa26befcc79194cff93198c4d5a6290380
