@@ -1,0 +1,8 @@
+*/*.exe
+*/*.o
+*/analyzer
+*/analyze
+*/*.txt
+*/*.png
+*/*.root
+Vjezbe_8/Leptons_*.pdf
