@@ -52,6 +52,13 @@ void Analyzer::PlotHistogram(TString input_file_name)
 
    Mass_histo = new TH1F("Mass_histo", "Reconstructed 4 lepton mass", 50, 90., 140.);
 
+   input_file = new TFile(input_file_name);
+
+   hCounters = (TH1F *)input_file->Get("ZZTree/Counters");
+   gen_sum_weights = (Long64_t)hCounters->GetBinContent(40);
+
+   input_tree = (TTree *)input_file->Get("ZZTree/candTree");
+   Init(input_tree);
 
    if (fChain == 0) return;
 
@@ -68,10 +75,10 @@ void Analyzer::PlotHistogram(TString input_file_name)
 
       for (int i = 0; i < 4; i++)
       {
-        LeptonPt_histo[i]->Fill(LepPt->at(i));
-        LeptonEta_histo[i]->Fill(LepEta->at(i));
-        LeptonPhi_histo[i]->Fill(LepPhi->at(i));
-        LeptonBDT_histo[i]->Fill(LepBDT->at(i));
+        LeptonPt_histo[i]->Fill(LepPt->at(i),_event_weight);
+        LeptonEta_histo[i]->Fill(LepEta->at(i),_event_weight);
+        LeptonPhi_histo[i]->Fill(LepPhi->at(i),_event_weight);
+        LeptonBDT_histo[i]->Fill(LepBDT->at(i),_event_weight);
       }
 
       //recounstruction of Higgs
@@ -88,7 +95,10 @@ void Analyzer::PlotHistogram(TString input_file_name)
         Higgs = Z1+Z2;
       }
 
-      Mass_histo->Fill(Higgs.M());
+      // event weight
+              _event_weight = 137.0 * 1000 * xsec * overallEventWeight / gen_sum_weights;
+
+      Mass_histo->Fill(Higgs.M(),_event_weight);
    }
 
    //Plotting

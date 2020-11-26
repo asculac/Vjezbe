@@ -14,8 +14,11 @@ int main()
 
   analyzer = new Analyzer();
 
-  analyzer->PlotHistogram("/afs/cern.ch/user/a/asculac/Vjezbe/Vjezbe_6/ZZ4lAnalysis.root");
+  analyzer->PlotHistogram("/eos/user/t/tsculac/BigStuff/4Ana/ggH125/ZZ4lAnalysis.root");
+  analyzer->PlotHistogram("/eos/user/t/tsculac/BigStuff/4Ana/qqZZ/ZZ4lAnalysis.root");
+  
   analyzer->PlotMass();
+  analyzer->PlotDkin();
 
   delete analyzer;
 
